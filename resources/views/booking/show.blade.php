@@ -27,14 +27,6 @@
                                 <td>{{$data->tanggal_booking}}</td>
                             </tr>
                             <tr>
-                                <th>Total Transaksi</th>
-                                <td>Rp.{{$data->total_transaksi}}</td>
-                            </tr>
-                            <tr>
-                                <th>Total Terbayar</th>
-                                <td>Rp.{{$data->total_terbayar}}</td>
-                            </tr>
-                            <tr>
                                 <th>Tanggal Mulai</th>
                                 <td>{{$dataa->tanggal_mulai}}</td>
                             </tr>
@@ -43,12 +35,20 @@
                                 <td>{{$dataa->tanggal_akhir}}</td>
                             </tr>
                             <tr>
-                                <th>Total Tamu</th>
-                                <td>{{$dataa->quantity}}</td>
+                                <th>Nomor Kamar</th>
+                                <td>Kamar {{$dataa->kamar_id}}</td>
                             </tr>
                             <tr>
-                                <th>Nomor Kamar</th>
-                                <td>{{$dataa->kamar_id}}</td>
+                                <th>Total Tamu</th>
+                                <td>{{$dataa->quantity}} Orang</td>
+                            </tr>
+                            <tr>
+                                <th>Total Transaksi</th>
+                                <td>Rp.{{$data->total_transaksi}}</td>
+                            </tr>
+                            <tr>
+                                <th>Total Terbayar</th>
+                                <td>Rp.{{$data->total_terbayar}}</td>
                             </tr>
                             <tr>
                                 <th>Status Pembayaran</th>

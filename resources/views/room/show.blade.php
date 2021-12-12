@@ -24,7 +24,7 @@
                             </tr>
                             <tr>
                                 <th>Harga Kamar</th>
-                                <td>{{$data->harga}}</td>
+                                <td>Rp.{{$data->harga}}</td>
                             </tr>
                             <tr>
                                 <th>Stok Kamar</th>

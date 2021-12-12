@@ -45,7 +45,7 @@ class BookingController extends Controller
     {
         $request->validate([
             'kodeBooking'=>'required',
-            'tamuBooking'=>'required',
+            'idtamu'=>'required',
         ]);
         
         $data=new Booking;
