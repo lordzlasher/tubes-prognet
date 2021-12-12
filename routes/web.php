@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KamarController;
 use App\Http\Controllers\TamuController;
 use App\Http\Controllers\BookingController;
-
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +20,13 @@ use App\Http\Controllers\BookingController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+//Admin Login
+Route::get('admin/login', [AdminController::class,'login']);
+Route::post('admin/login', [AdminController::class,'check_login']);
+Route::get('admin/logout', [AdminController::class,'logout']);
 
 
 //Admin Dashboard

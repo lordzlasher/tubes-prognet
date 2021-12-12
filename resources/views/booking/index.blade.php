@@ -19,6 +19,7 @@
                                     <th>#</th>
                                     <th>Kode Booking</th>
                                     <th>Tanggal Booking</th>
+                                    <th>Status Pembayaran</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -26,11 +27,15 @@
                             </tfoot>
                             <tbody>
                                 @if($data)
+                                @if($dataa)
                                     @foreach($data as  $d)
                                     <tr>
                                         <td>{{$d->id}}</td>
                                         <td>{{$d->kode_booking}}</td>
                                         <td>{{$d->tanggal_booking}}</td>
+                                        @foreach( $dataa as $dd)
+                                        <td>{{$dd->status}}</td>
+                                        @endforeach
                                         <td>
                                             <a href="{{url('admin/booking/'.$d->id)}}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i></a>
                                             <a href="{{url('admin/booking/'.$d->id.'/edit')}}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
@@ -38,6 +43,7 @@
                                         </td>
                                     </tr>
                                     @endforeach
+                                @endif
                                 @endif
                             </tbody>
                         </table>

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hotel RPL - Login</title>
+    <title>Hotel Sunny - Login Admin</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -39,7 +39,7 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome Admin!</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Welcome The Sunny Admin!</h1>
                                     </div>
                                     <form class="user" method="post" action="{{url('admin/login')}}">
                                         @csrf 

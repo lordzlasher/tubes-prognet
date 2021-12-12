@@ -20,7 +20,7 @@ class BookingController extends Controller
     {
         $data=Booking::all();
         $dataa=BookingDetail::all();
-        return view('booking.index',['data'=>$data]);
+        return view('booking.index',['data'=>$data],['dataa'=>$dataa]);
     }
 
     /**
@@ -45,6 +45,7 @@ class BookingController extends Controller
     {
         $request->validate([
             'kodeBooking'=>'required',
+            'tamuBooking'=>'required',
         ]);
         
         $data=new Booking;
