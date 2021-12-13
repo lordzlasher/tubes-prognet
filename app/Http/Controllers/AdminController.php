@@ -24,7 +24,7 @@ class AdminController extends Controller
             session(['adminData'=>$adminData]);
             return redirect('admin');
         }else{
-            return redirect('loginGuest')->with('msg','Username/Password salah!!');
+            return redirect('login')->with('msg','Username/Password salah!!');
         }
     }
 

@@ -31,7 +31,7 @@
                                 <th>Tamu yang Booking</th>
                                 <td>
                                     <select name="idtamu" class="form-control">
-                                        <option value="0">--- Data Tamu ----</option>
+                                        <option value="0">Data Tamu</option>
                                         @foreach($idtamu as $tm)
                                         <option value="{{$tm->id}}">{{$tm->nama}}</option>
                                         @endforeach
@@ -55,12 +55,12 @@
                                 <td><input name="totalTamu" type="text" class="form-control"/> </td>
                             </tr>
                             <tr>
-                                <th>Nomor Kamar</th>
+                                <th>Tipe Kamar</th>
                                 <td>
                                     <select name="idkamarr" class="form-control">
-                                        <option value="0">--- Data Kamar ----</option>
+                                        <option value="0">Tipe Kamar</option>
                                         @foreach($idkamar as $tk)
-                                        <option value="{{$tk->id}}">{{$tk->id}}</option>
+                                        <option value="{{$tk->id}}">{{$tk->tipe}}</option>
                                         @endforeach
                                     </select>
                                 </td>
@@ -69,7 +69,7 @@
                                 <th>Status Pembayaran</th>
                                 <td>
                                     <select name="statuss" class="form-control">
-                                        <option value="0">--- Status Pembayaran ---</option>
+                                        <option value="0">Status Pembayaran</option>
                                         <option value="1">Belum terbayar</option>
                                         <option value="2">Terbayar</option>
                                     </select>

@@ -78,7 +78,8 @@ class BookingController extends Controller
     {
         $data=Booking::find($id);
         $dataa=BookingDetail::find($id);
-        return view('booking.show',['data'=>$data, 'dataa'=>$dataa]);
+        $kamarr=Kamar::find($id);
+        return view('booking.show',['data'=>$data, 'dataa'=>$dataa, 'kamarr'=>$kamarr]);
     }
 
     /**

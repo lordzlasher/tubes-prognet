@@ -17,8 +17,8 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Nomer Kamar</th>
                                     <th>Tipe Kamar</th>
+                                    <th>Stok Kamar</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -29,8 +29,8 @@
                                     @foreach($data as  $d)
                                     <tr>
                                         <td>{{$d->id}}</td>
-                                        <td>Kamar {{$d->id}}</td>
                                         <td>{{$d->tipe}}</td>
+                                        <td>{{$d->stok_tersedia}}</td>
                                         <td>
                                             <a href="{{url('admin/room/'.$d->id)}}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i></a>
                                             <a href="{{url('admin/room/'.$d->id.'/edit')}}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>

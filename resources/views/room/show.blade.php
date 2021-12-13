@@ -15,10 +15,6 @@
                     <div class="table-responsive">
                         <table class="table table-bordered" > 
                             <tr>
-                                <th>Nomer Kamar</th>
-                                <td>Kamar {{$data->id}}</td>
-                            </tr>
-                            <tr>
                                 <th>Tipe Kamar</th>
                                 <td>{{$data->tipe}}</td>
                             </tr>

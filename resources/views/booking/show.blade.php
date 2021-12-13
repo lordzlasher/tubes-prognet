@@ -35,8 +35,8 @@
                                 <td>{{$dataa->tanggal_akhir}}</td>
                             </tr>
                             <tr>
-                                <th>Nomor Kamar</th>
-                                <td>Kamar {{$dataa->kamar_id}}</td>
+                                <th>Tipe Kamar</th>
+                                <td>{{$kamarr->tipe}}</td>
                             </tr>
                             <tr>
                                 <th>Total Tamu</th>

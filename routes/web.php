@@ -37,6 +37,10 @@ Route::get('/login', function () {
     return view('loginGuest');
 });
 
+Route::get('/register', function () {
+    return view('registerGuest');
+});
+
 
 //Admin Login
 Route::get('login', [AdminController::class,'login']);
