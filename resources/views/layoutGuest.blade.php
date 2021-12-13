@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
 
+
+
 </head>
 <body> 
     <header class="header_area">
@@ -38,7 +40,7 @@
                         <li class="nav-item "><a class="nav-link" href="{{url('/about')}}">About us</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{url('/gallery')}}">Gallery</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{url('/contact')}}">Contact</a></li>
-                        <li class="nav-item"><a class="btn theme_btn button_hover" href="login.html">Login</a></li>
+                        <li class="nav-item"><a class="btn theme_btn button_hover" href="{{url('/login')}}">Login</a></li>
                     </ul>
                 </div> 
             </nav>
@@ -76,6 +78,8 @@
     <script src="{{asset('js/stellar.js')}}"></script>
     <script src="{{asset('vendors/lightbox/simpleLightbox.min.js')}}"></script>
     <script src="{{asset('js/custom.js')}}"></script>
+
+
 </body>
 
 </html>

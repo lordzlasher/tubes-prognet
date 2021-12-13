@@ -9,7 +9,7 @@ class AdminController extends Controller
 {
     //Login
     function login(){
-        return view('login');
+        return view('loginGuest');
     }
 
     //check login
@@ -24,13 +24,13 @@ class AdminController extends Controller
             session(['adminData'=>$adminData]);
             return redirect('admin');
         }else{
-            return redirect('admin/login')->with('msg','Username/Password salah!!');
+            return redirect('loginGuest')->with('msg','Username/Password salah!!');
         }
     }
 
     //Logout
     function logout(){
         session()->forget(['adminData']);
-        return redirect('admin/login');
+        return redirect('welcome');
     }
 }

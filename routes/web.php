@@ -33,11 +33,14 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
+Route::get('/login', function () {
+    return view('loginGuest');
+});
 
 
 //Admin Login
-Route::get('admin/login', [AdminController::class,'login']);
-Route::post('admin/login', [AdminController::class,'check_login']);
+Route::get('login', [AdminController::class,'login']);
+Route::post('login', [AdminController::class,'check_login']);
 Route::get('admin/logout', [AdminController::class,'logout']);
 
 

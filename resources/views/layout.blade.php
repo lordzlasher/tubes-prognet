@@ -9,11 +9,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hotel RPL - Admin</title>
+    <title>The Sunny - Admin</title>
 
     @if(!Session::has('adminData'))
     <script type="text/javascript">  
-        window.location.href="{{url('admin/login')}}"
+        window.location.href="{{url('login')}}"
     </script>
 @endif
 
