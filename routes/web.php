@@ -60,6 +60,7 @@ Route::resource('admin/room',KamarController::class);
 //Customer Routes
 Route::get('admin/customer/{id}/delete',[TamuController::class,'destroy']);
 Route::resource('admin/customer',TamuController::class);
+Route::resource('registerGuest',TamuController::class);
 
 //Booking Routes
 Route::get('admin/booking/{id}/delete',[BookingController::class,'destroy']);

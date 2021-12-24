@@ -16,43 +16,44 @@
                         <table class="table table-bordered" > 
                             <tr>
                                 <th>Kode Booking</th>
-                                <td>{{$data->kode_booking}}</td>
+                                <td>{{$detail->Booking->kode_booking}}</td>
                             </tr>
                             <tr>
                                 <th>Tamu</th>
-                                <td>{{$data->NamaTamu->nama}}</td>
+                                <td>{{$tamu->nama}}</td>
                             </tr>
+                            
                             <tr>
                                 <th>Tanggal Booking</th>
-                                <td>{{$data->tanggal_booking}}</td>
+                                <td>{{$detail->Booking->tanggal_booking}}</td>
                             </tr>
                             <tr>
-                                <th>Tanggal Mulai</th>
-                                <td>{{$dataa->tanggal_mulai}}</td>
+                                <th>Tanggal Check In</th>
+                                <td>{{$detail->tanggal_mulai}}</td>
                             </tr>
                             <tr>
-                                <th>Tanggal Akhir</th>
-                                <td>{{$dataa->tanggal_akhir}}</td>
+                                <th>Tanggal Check Out</th>
+                                <td>{{$detail->tanggal_akhir}}</td>
                             </tr>
                             <tr>
                                 <th>Tipe Kamar</th>
-                                <td>{{$kamarr->tipe}}</td>
+                                <td>{{$detail->Kamar->tipe}}</td>
                             </tr>
                             <tr>
-                                <th>Total Tamu</th>
-                                <td>{{$dataa->quantity}} Orang</td>
+                                <th>Total Kamar</th>
+                                <td>{{$detail->quantity}} Kamar</td>
                             </tr>
                             <tr>
                                 <th>Total Transaksi</th>
-                                <td>Rp.{{$data->total_transaksi}}</td>
+                                <td>Rp.{{$detail->Booking->total_transaksi}}</td>
                             </tr>
                             <tr>
                                 <th>Total Terbayar</th>
-                                <td>Rp.{{$data->total_terbayar}}</td>
+                                <td>Rp.{{$detail->Booking   ->total_terbayar}}</td>
                             </tr>
                             <tr>
                                 <th>Status Pembayaran</th>
-                                <td>{{$dataa->status}}</td>
+                                <td>{{$detail->status}}</td>
                             </tr>
                         </table>
                     </div>

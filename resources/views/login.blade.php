@@ -74,7 +74,8 @@
 
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                        <a class="small" href="forgot-password.html">Don't have account? Register</a>
+                                        <a class="small" href="{{url('/register')}}"></a>
                                     </div>
                                 </div>
                             </div>

@@ -23,29 +23,16 @@
                             </div>
                             <form class="user">
                                 <div class="form-group">
+                                    <form method="post" enctype="multipart/form-data" action="{{url('register')}}">
+                                        @csrf
                                     <div>
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                                        <input type="text" class="form-control form-control-user" id="nama_lengkap" name="nama_lengkap"
                                             placeholder="Nama Lengkap">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <div>
-                                        <select name="tanda_pengenal" class="form-control form-control-user">
-                                            <option value="0">Tanda Pengenal</option>
-                                            <option value="1">KTP</option>
-                                            <option value="2">Paspor</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div>
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                            placeholder="Nomer Pengenal">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Email Address">
+                                    <input type="text" class="form-control form-control-user" id="Username" name=""
+                                        placeholder="Username">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
@@ -57,13 +44,13 @@
                                             id="exampleRepeatPassword" placeholder="Repeat Password">
                                     </div>
                                 </div>
-                                <a href="login.html" class="btn btn-primary btn-user btn-block">
+                                <a href="{{url('/register')}}" class="btn btn-primary btn-user btn-block" type="submit">
                                     Register Account
                                 </a>
                                 <hr>
                             </form>
                             <div class="text-center">
-                                <a class="small" href="login.html">Already have an account? Login!</a>
+                                <a class="small" href="{{url('/login')}}">Already have an account? Login!</a>
                             </div>
                         </div>
                     </div>

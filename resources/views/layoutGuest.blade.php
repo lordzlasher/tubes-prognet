@@ -40,14 +40,13 @@
                         <li class="nav-item "><a class="nav-link" href="{{url('/about')}}">About us</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{url('/gallery')}}">Gallery</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{url('/contact')}}">Contact</a></li>
-                        <li class="nav-item"><a class="btn theme_btn button_hover" href="{{url('/login')}}">Login</a></li>
+                        <li class="nav-item"><a class="btn theme_btn button_hover" href="{{url('/login')}}">Login</a>
                     </ul>
                 </div> 
             </nav>
         </div>
     </header>
     <!--================Header Area =================-->
-    
 
       <!--================ start footer Area  =================-->	
       <footer class="footer-area section_gap">

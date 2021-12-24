@@ -20,6 +20,7 @@ class CreateBookingDetailsTable extends Migration
             $table->date('tanggal_akhir');
             $table->integer('quantity');
             $table->integer('kamar_id');
+            $table->foreign('kamar_id')->references('id')->on('kamars')->onDelete('cascade');
             $table->enum('status', ['Belum Terbayar', 'Terbayar']);
             $table->timestamps();
         });

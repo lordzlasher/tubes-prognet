@@ -26,6 +26,7 @@ class TamuController extends Controller
     public function create()
     {
         return view('customer.create');
+        return view('register');
     }
 
     /**
@@ -53,7 +54,9 @@ class TamuController extends Controller
         $data->telepon=$request->telepon;     
         $data->save();
 
-        return redirect('admin/customer/create')->with('success','Data telah ditambahkan');
+        return redirect('admin/customer')->with('success','Data telah ditambahkan');
+        return redirect('register')->with('success','Data telah ditambahkan');
+
     }
 
     /**
@@ -105,7 +108,7 @@ class TamuController extends Controller
         $data->telepon=$request->telepon;     
         $data->save();
 
-        return redirect('admin/customer/'.$id.'/edit')->with('success','Data telah diedit');
+        return redirect('admin/customer')->with('success','Data telah diedit');
     }
 
     /**

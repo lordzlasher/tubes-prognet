@@ -60,6 +60,8 @@
                                     <hr>
                                     <div class="text-center">
                                         <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                        <br>
+                                        <a class="small" href="{{url('/register')}}">Don't have account? Register</a>
                                     </div>
                                 </div>
                             </div>

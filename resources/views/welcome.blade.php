@@ -9,7 +9,7 @@
 						<h6>Away from monotonous life</h6>
 						<h2>THE SUNNY</h2>
 						<p>Have a great holiday experience at our hotel </p>
-						<a href="#" class="btn theme_btn button_hover">BOOK NOW</a>
+						<a href="{{url('admin/booking')}}" class="btn theme_btn button_hover">BOOK NOW</a>
 					</div>
 				</div>
             </div>
@@ -47,7 +47,7 @@
                         <div class="accomodation_item text-center">
                             <div class="hotel_img">
                                 <img src="image/room2.jpg" alt="">
-                                <a href="#" class="btn theme_btn button_hover">Book Now</a>
+                                <a href="{{url('admin/booking')}}" class="btn theme_btn button_hover">Book Now</a>
                             </div>
                             <h4 class="sec_h4">Deluxe Room</h4></a>
                             <h5>Rp.1.800.000,-<small>/night</small></h5>
@@ -57,7 +57,7 @@
                         <div class="accomodation_item text-center">
                             <div class="hotel_img">
                                 <img src="image/room3.jpg" alt="">
-                                <a href="#" class="btn theme_btn button_hover">Book Now</a>
+                                <a href="{{url('admin/booking')}}" class="btn theme_btn button_hover">Book Now</a>
                             </div>
                             <h4 class="sec_h4">Suite Room</h4></a>
                             <h5>Rp.3.500.000,-<small>/night</small></h5>

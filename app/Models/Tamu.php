@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Tamu extends Model
 {
     use HasFactory;
+    protected $table = 'tamus';
 }

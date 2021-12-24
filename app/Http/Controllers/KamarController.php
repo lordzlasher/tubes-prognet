@@ -46,7 +46,7 @@ class KamarController extends Controller
         $data->foto_kamar=$imgPath;
         $data->save();
 
-        return redirect('admin/room/create')->with('success','Data telah ditambahkan');
+        return redirect('admin/room')->with('success','Data telah ditambahkan');
     }
 
     /**

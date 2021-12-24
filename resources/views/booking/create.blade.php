@@ -24,8 +24,8 @@
                             @csrf
                         <table class="table table-bordered" > 
                             <tr>
-                                <th>Kode Booking <span class="text-danger">*</span> </th>
-                                <td><input name="kodeBooking" type="text" class="form-control"/> </td>
+                                <th>Kode Booking</th>
+                                <td><input name="kodeBooking" type="text" class="form-control" value="{{$kode}}" readonly/> </td>
                             </tr>
                             <tr>
                                 <th>Tamu yang Booking</th>
@@ -40,19 +40,21 @@
                             </tr>
                             <tr>
                                 <th>Tanggal Booking</span> </th>
-                                <td><input name="tanggalBooking" type="date" class="form-control"/> </td>
+                                <td> <input id="tanggalBooking" type="date"  class="form-control" name="tanggalBooking" value="{{ date('Y-m-d', strtotime(Carbon\Carbon::today()->toDateString())) }}" required="" readonly ></td> 
+
+                                
                             </tr>
                             <tr>
-                                <th>Tanggal Mulai <span class="text-danger">*</span> </th>
+                                <th>Tanggal Check In <span class="text-danger">*</span> </th>
                                 <td><input name="tanggalMulai" type="date" class="form-control"/> </td>
                             </tr>
                             <tr>
-                                <th>Tanggal Akhir</th>
+                                <th>Tanggal Check Out</th>
                                 <td><input name="tanggalAkhir" type="date" class="form-control"/> </td>
                             </tr>
                             <tr>
-                                <th>Total Tamu</th>
-                                <td><input name="totalTamu" type="text" class="form-control"/> </td>
+                                <th>Total Kamar</th>
+                                <td><input name="totalKamar" type="text" class="form-control"/> </td>
                             </tr>
                             <tr>
                                 <th>Tipe Kamar</th>

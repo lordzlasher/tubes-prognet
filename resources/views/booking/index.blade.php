@@ -26,16 +26,12 @@
                             <tfoot>
                             </tfoot>
                             <tbody>
-                                @if($data)
-                                @if($dataa)
-                                    @foreach($data as  $d)
+                                    @foreach($detail as  $d)
                                     <tr>
-                                        <td>{{$d->id}}</td>
-                                        <td>{{$d->kode_booking}}</td>
-                                        <td>{{$d->tanggal_booking}}</td>
-                                        @foreach( $dataa as $dd)
-                                        <td>{{$dd->status}}</td>
-                                        @endforeach
+                                        <td>{{$d->Booking->id}}</td>
+                                        <td>{{$d->Booking->kode_booking}}</td>
+                                        <td>{{$d->Booking->tanggal_booking}}</td>
+                                        <td>{{$d->status}}</td>
                                         <td>
                                             <a href="{{url('admin/booking/'.$d->id)}}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i></a>
                                             <a href="{{url('admin/booking/'.$d->id.'/edit')}}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
@@ -43,8 +39,6 @@
                                         </td>
                                     </tr>
                                     @endforeach
-                                @endif
-                                @endif
                             </tbody>
                         </table>
                     </div>

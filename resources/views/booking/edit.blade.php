@@ -11,41 +11,77 @@
                         <a href="{{url('admin/customer')}}" class="float-right btn btn-success btn-sm" >Lihat data Tamu</a>
                     </h6>
                 </div>
+                
                 <div class="card-body">
                     @if(Session::has('succcess'))
                     <p class="text-success">{{session('success')}}</p>
                     @endif
                     <div class="table-responsive">
-                        <form method="post" enctype="multipart/form-data" action="{{url('admin/customer/'.$data->id)}}">
+                        <form method="post" enctype="multipart/form-data" action="{{url('admin/booking')}}">
                             @csrf
-                            @method('put')
-                        <table class="table table-bordered" > 
+                            <table class="table table-bordered" > 
                             <tr>
-                                <th>Pilih tanda pengenal</th>
+                                <th>Kode Booking <span class="text-danger">*</span> </th>
+                                <td><input name="kodeBooking" type="text" class="form-control" value="{{$booking->kode_booking}}" readonly/> </td>
+                            </tr>
+                            <tr>
+                                {{-- <th>Tamu yang Booking</th>
                                 <td>
-                                    <select name="tanda_pengenal" class="form-control">
-                                        <option value="0">--- Tanda Pengenal ----</option>
-                                        <option value="1">KTP</option>
-                                        <option value="2">Paspor</option>
+                                    <select name="idtamu" class="form-control">
+                                        <option value="0">{{$booking->tamu_id}}</option>
+                                        @foreach($idtamu as $tm)
+                                        <option value="{{$tm->id}}">{{$tm->nama}}</option>
+                                        @endforeach
+                                    </select>
+                                </td>
+                            </tr> --}}
+                            {{-- <tr>
+                                <th>Tanggal Booking</span> </th>
+                                <td> <input id="tanggalBooking" type="date"  class="form-control" name="tanggalBooking" value="{{ date('Y-m-d', strtotime(Carbon\Carbon::today()->toDateString())) }}" required="" readonly ></td> 
+
+                                
+                            </tr>
+                            <tr>
+                                <th>Tanggal Check In <span class="text-danger">*</span> </th>
+                                <td><input name="tanggalMulai" type="date" class="form-control"/> </td>
+                            </tr>
+                            <tr>
+                                <th>Tanggal Check Out</th>
+                                <td><input name="tanggalAkhir" type="date" class="form-control"/> </td>
+                            </tr>
+                            <tr>
+                                <th>Total Kamar</th>
+                                <td><input name="totalKamar" type="text" class="form-control"/> </td>
+                            </tr>
+                            <tr>
+                                <th>Tipe Kamar</th>
+                                <td>
+                                    <select name="idkamarr" class="form-control">
+                                        <option value="0">Tipe Kamar</option>
+                                        @foreach($idkamar as $tk)
+                                        <option value="{{$tk->id}}">{{$tk->tipe}}</option>
+                                        @endforeach
                                     </select>
                                 </td>
                             </tr>
                             <tr>
-                                <th>Nomor Tanda Pengenal <span class="text-danger">*</span> </th>
-                                <td><input value="{{$data->nomor_pengenal}}" name="no_tanda_pengenal" type="text" class="form-control"/> </td>
+                                <th>Status Pembayaran</th>
+                                <td>
+                                    <select name="statuss" class="form-control">
+                                        <option value="0">Status Pembayaran</option>
+                                        <option value="1">Belum terbayar</option>
+                                        <option value="2">Terbayar</option>
+                                    </select>
+                                </td>
                             </tr>
                             <tr>
-                                <th>Nama Lengkap <span class="text-danger">*</span> </th>
-                                <td><input value="{{$data->nama}}" name="nama_lengkap" type="text" class="form-control"/> </td>
+                                <th>Total Transaksi</th>
+                                <td><input name="totalTransaksi" type="text" class="form-control"/></td>
                             </tr>
                             <tr>
-                                <th>Alamat</th>
-                                <td><input value="{{$data->alamat}}" name="alamat" type="text" class="form-control"/> </td>
-                            </tr>
-                            <tr>
-                                <th>Nomor Telepon <span class="text-danger">*</span> </th>
-                                <td><input value="{{$data->telepon}}" name="telepon" type="text" class="form-control"/> </td>
-                            </tr>
+                                <th>Total Bayar </th>
+                                <td><input name="totalBayar" type="text" class="form-control"/> </td>
+                            </tr> --}}
                             <tr>
                                 <td colspan="2">
                                     <input type="submit" class="btn btn-primary" /> 
@@ -54,6 +90,8 @@
                         </table>
                         </form>
                     </div>
+                </div>
+            </div>
                 </div>
             </div>
 

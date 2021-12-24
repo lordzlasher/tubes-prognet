@@ -7,6 +7,7 @@ use App\Models\Booking;
 use App\Models\BookingDetail;
 use App\Models\Tamu;
 use App\Models\Kamar;
+use Carbon\Carbon;
 
 
 class BookingController extends Controller
@@ -18,9 +19,8 @@ class BookingController extends Controller
      */
     public function index()
     {
-        $data=Booking::all();
-        $dataa=BookingDetail::all();
-        return view('booking.index',['data'=>$data],['dataa'=>$dataa]);
+        $detail=BookingDetail::all();
+        return view('booking.index',compact('detail'));
     }
 
     /**
@@ -30,9 +30,32 @@ class BookingController extends Controller
      */
     public function create(Request $request)
     {
+        $getRow = Booking::orderBy('id','DESC')->get();
+
+        $rowCount = $getRow->count();
+        
+        $lastId = $getRow->first();
+
+        $kode = "BO00001";
+        
+        if ($rowCount > 0) {
+            if ($lastId->id < 9) {
+                    $kode = "BO0000".''.($lastId->id + 1);
+            } else if ($lastId->id < 99) {
+                    $kode = "BO000".''.($lastId->id + 1);
+            } else if ($lastId->id < 999) {
+                    $kode = "BO00".''.($lastId->id + 1);
+            } else if ($lastId->id < 9999) {
+                    $kode = "BO0".''.($lastId->id + 1);
+            } else {
+                    $kode = "BO".''.($lastId->id + 1);
+            }
+        }
+        
+        
         $tamuu=Tamu::all();
         $kamarr=Kamar::all();
-        return view('booking.create',['idtamu'=>$tamuu, 'idkamar'=>$kamarr]);
+        return view('booking.create',['idtamu'=>$tamuu, 'idkamar'=>$kamarr, 'kode'=>$kode]);
     }
 
     /**
@@ -44,7 +67,6 @@ class BookingController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'kodeBooking'=>'required',
             'idtamu'=>'required',
         ]);
         
@@ -57,15 +79,14 @@ class BookingController extends Controller
         $data->save();
 
         $dataa=new BookingDetail;
-        $dataa->booking_id=$request->id;
+        $dataa->booking_id=$data->id;
         $dataa->tanggal_mulai=$request->tanggalMulai;
         $dataa->tanggal_akhir=$request->tanggalAkhir;
-        $dataa->quantity=$request->totalTamu;
+        $dataa->quantity=$request->totalKamar;
         $dataa->kamar_id=$request->idkamarr;
         $dataa->status=$request->statuss;
         $dataa->save();
-
-        return redirect('admin/booking/create')->with('success','Data telah ditambahkan');
+        return redirect('admin/booking')->with('success','Data telah ditambahkan');
     }
 
     /**
@@ -76,10 +97,9 @@ class BookingController extends Controller
      */
     public function show($id)
     {
-        $data=Booking::find($id);
-        $dataa=BookingDetail::find($id);
-        $kamarr=Kamar::find($id);
-        return view('booking.show',['data'=>$data, 'dataa'=>$dataa, 'kamarr'=>$kamarr]);
+        $detail=BookingDetail::find($id);
+        $tamu=Tamu::find($id);
+        return view('booking.show', compact('detail','tamu'));
     }
 
     /**
@@ -89,8 +109,13 @@ class BookingController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {      
+        {
+            $booking=Booking::all();
+            $tamuu=Tamu::all();
+            $kamarr=Kamar::all();
+            return view('booking.edit',['idtamu'=>$tamuu, 'idkamar'=>$kamarr,'booking'=>$booking]);
+        }
     }
 
     /**
@@ -113,6 +138,9 @@ class BookingController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Booking::where('id',$id)->delete();
+        BookingDetail::where('id',$id)->delete();
+        return redirect('admin/booking')->with('success','Data telah dihapus');
+
     }
 }
