@@ -47,6 +47,14 @@
                                 <td><input value="{{$data->telepon}}" name="telepon" type="text" class="form-control"/> </td>
                             </tr>
                             <tr>
+                                <th>Email</th>
+                                <td><input value="{{$data->email}}" name="email" type="email" class="form-control"/> </td>
+                            </tr>
+                            <tr>
+                                <th>Password</th>
+                                <td><input name="pass" type="password" class="form-control"/> </td>
+                            </tr>
+                            <tr>
                                 <td colspan="2">
                                     <input type="submit" class="btn btn-primary" /> 
                                 </td>

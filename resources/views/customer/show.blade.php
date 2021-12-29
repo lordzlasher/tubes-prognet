@@ -34,6 +34,10 @@
                                 <th>Nomor Telepon</th>
                                 <td>{{$data->telepon}}</td>
                             </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td>{{$data->email}}</td>
+                            </tr>
                         </table>
                     </div>
                 </div>

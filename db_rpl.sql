@@ -1,6 +1,6 @@
 /*
-SQLyog Ultimate v12.5.1 (32 bit)
-MySQL - 10.4.21-MariaDB : Database - db_prognet_booking
+SQLyog Ultimate v13.1.1 (64 bit)
+MySQL - 10.4.18-MariaDB : Database - db_hotel_rpl
 *********************************************************************
 */
 
@@ -12,9 +12,25 @@ MySQL - 10.4.21-MariaDB : Database - db_prognet_booking
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_prognet_booking` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_hotel_rpl` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 
-USE `db_prognet_booking`;
+USE `db_hotel_rpl`;
+
+/*Table structure for table `admins` */
+
+DROP TABLE IF EXISTS `admins`;
+
+CREATE TABLE `admins` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+/*Data for the table `admins` */
+
+insert  into `admins`(`id`,`username`,`password`) values 
+(1,'admin','d033e22ae348aeb5660fc2140aec35850c4da997');
 
 /*Table structure for table `booking_details` */
 
@@ -22,24 +38,21 @@ DROP TABLE IF EXISTS `booking_details`;
 
 CREATE TABLE `booking_details` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `booking_id` int(11) DEFAULT NULL,
+  `booking_id` bigint(20) DEFAULT NULL,
   `tanggal_mulai` date NOT NULL,
   `tanggal_akhir` date NOT NULL,
   `quantity` int(11) NOT NULL,
-  `kamar_id` int(11) NOT NULL,
+  `kamar_id` bigint(20) NOT NULL,
   `status` enum('Belum Terbayar','Terbayar') COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `booking_details` */
 
 insert  into `booking_details`(`id`,`booking_id`,`tanggal_mulai`,`tanggal_akhir`,`quantity`,`kamar_id`,`status`,`created_at`,`updated_at`) values 
-(1,1,'2021-12-05','2021-12-07',2,0,'Belum Terbayar','2021-12-04 11:32:17','2021-12-04 11:32:17'),
-(2,2,'2021-12-06','2021-12-08',2,1,'Belum Terbayar','2021-12-04 11:42:27','2021-12-04 11:42:27'),
-(3,3,'2021-12-04','2021-12-07',2,3,'Belum Terbayar','2021-12-04 11:43:14','2021-12-04 11:43:14'),
-(4,4,'0000-00-00','0000-00-00',0,0,'Belum Terbayar',NULL,NULL);
+(1,1,'2021-12-29','2021-12-30',2,1,'Belum Terbayar','2021-12-28 03:38:22','2021-12-28 03:38:22');
 
 /*Table structure for table `bookings` */
 
@@ -55,26 +68,13 @@ CREATE TABLE `bookings` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `tamu_id` (`tamu_id`),
-  CONSTRAINT `bookings_ibfk_1` FOREIGN KEY (`tamu_id`) REFERENCES `tamus` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  KEY `tamu_id` (`tamu_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `bookings` */
 
 insert  into `bookings`(`id`,`kode_booking`,`tamu_id`,`tanggal_booking`,`total_transaksi`,`total_terbayar`,`created_at`,`updated_at`) values 
-(1,'281834',1,'2021-11-28',1000,2000,'2021-11-28 14:10:44','2021-11-28 14:10:44'),
-(2,'2012313',1,'2021-12-04',100000,0,'2021-12-04 11:23:03','2021-12-04 11:23:03'),
-(3,'2012313',1,'2021-12-04',100000,0,'2021-12-04 11:23:20','2021-12-04 11:23:20'),
-(4,'2012313',1,'2021-12-04',100000,0,'2021-12-04 11:24:10','2021-12-04 11:24:10'),
-(5,'2012313',2,'2021-12-04',100000,1,'2021-12-04 11:28:07','2021-12-04 11:28:07'),
-(6,'2012313',2,'2021-12-04',100000,1,'2021-12-04 11:29:18','2021-12-04 11:29:18'),
-(7,'2012313',2,'2021-12-04',100000,1,'2021-12-04 11:29:46','2021-12-04 11:29:46'),
-(8,'2012313',2,'2021-12-04',100000,1,'2021-12-04 11:30:58','2021-12-04 11:30:58'),
-(9,'2012313',2,'2021-12-04',100000,1,'2021-12-04 11:32:17','2021-12-04 11:32:17'),
-(10,'2012313',1,'2021-12-04',100000,100000,'2021-12-04 11:35:30','2021-12-04 11:35:30'),
-(11,'2012313',1,'2021-12-04',100000,100000,'2021-12-04 11:35:44','2021-12-04 11:35:44'),
-(12,'2012313',1,'2021-12-04',100000,100000,'2021-12-04 11:42:27','2021-12-04 11:42:27'),
-(13,'2012313',2,'2021-12-04',100000,100000,'2021-12-04 11:43:14','2021-12-04 11:43:14');
+(1,'BO00001',1,'2021-12-28',1000,1000,'2021-12-28 03:38:22','2021-12-28 03:38:22');
 
 /*Table structure for table `failed_jobs` */
 
@@ -108,13 +108,14 @@ CREATE TABLE `kamars` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `kamars` */
 
 insert  into `kamars`(`id`,`tipe`,`harga`,`stok_tersedia`,`fasilitas`,`foto_kamar`,`created_at`,`updated_at`) values 
-(1,'Standar',1000000,1,'Ac','na','2021-11-28 12:07:13','2021-11-28 12:07:13'),
-(3,'Standar',1000000,1,'a','imgs/yoQdCN1a2stfPG3wHbwPtuiClxZZ0YQRVY1mnDQX.jpg','2021-11-28 16:50:51','2021-11-28 16:50:51');
+(1,'Standar',850000,20,'King size bed, ac, Televisi, lemari es, kamar mandi','imgs/nZyMcTgUKowGRXH21HQ4I9sgR3hWsYodXMTFYPtc.jpg','2021-12-12 04:52:49','2021-12-12 04:52:49'),
+(2,'Deluxe',1800000,12,'King Size Bed. Kamar Mandi, Hair dryer, TV, Bathup. DVD player, Lemari Es, Minibar, Balkon, Tea/Coffee maker','imgs/Cf5IJaS2OIIzjf9ZCCXsRvzgCjGOqmtIyJ2WxHte.jpg','2021-12-12 04:58:35','2021-12-12 04:58:35'),
+(3,'Suite',3500000,5,'Super King , Minibar, Mini fridge, Setrika papan, Telepon, Tempat Tidur Sofa, Private Living Room, Hair dryer, Brankas, Tea/Coffee Maker, Ipod Dock, Bathup, Kamar mandi, cable / saelit TV, LED TV, hand & face towel, WIFI, AC','imgs/V2ojq4mMHTMGftw16purPX03HH8C4xSqOwvBke8j.jpg','2021-12-12 05:10:17','2021-12-12 05:10:17');
 
 /*Table structure for table `migrations` */
 
@@ -125,7 +126,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `migrations` */
 
@@ -136,7 +137,8 @@ insert  into `migrations`(`id`,`migration`,`batch`) values
 (4,'2019_12_14_000001_create_personal_access_tokens_table',1),
 (5,'2021_11_28_104808_create_kamars_table',2),
 (6,'2021_11_28_124431_create_tamus_table',3),
-(7,'2021_12_04_090713_create_booking_details_table',4);
+(7,'2021_12_04_090713_create_booking_details_table',4),
+(8,'2021_12_12_034545_create_admins_table',5);
 
 /*Table structure for table `password_resets` */
 
@@ -180,19 +182,20 @@ CREATE TABLE `tamus` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `id_pengenal` enum('KTP','Paspor') COLLATE utf8mb4_unicode_ci NOT NULL,
   `nomor_pengenal` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `alamat` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `telepon` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `alamat` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `telepon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `tamus` */
 
-insert  into `tamus`(`id`,`id_pengenal`,`nomor_pengenal`,`nama`,`alamat`,`telepon`,`created_at`,`updated_at`) values 
-(1,'KTP','32415341345','Yoga Pramana','Br. Sakah','0895342581529','2021-11-28 13:08:30','2021-11-28 13:08:30'),
-(2,'KTP','32415341345','Kadek Indah Permata','Br. Medahan','082146817782','2021-11-28 13:13:55','2021-11-28 13:21:03');
+insert  into `tamus`(`id`,`id_pengenal`,`nomor_pengenal`,`nama`,`alamat`,`telepon`,`email`,`password`,`created_at`,`updated_at`) values 
+(1,'KTP','32415341345','Yoga Pramana','Br. Sakah','0895-3425-81529','yoga.putrax@gmail.com','84147dab5666e13099ce1efba89b2908b96564ef','2021-12-28 03:32:05','2021-12-28 03:32:05');
 
 /*Table structure for table `users` */
 

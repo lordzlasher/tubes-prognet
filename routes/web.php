@@ -33,19 +33,23 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/login', function () {
-    return view('loginGuest');
+Route::get('/bookingtamu', function () {
+    return view('bookingGuest');
 });
 
-Route::get('/register', function () {
-    return view('registerGuest');
-});
+//register
+Route::get('register', [UserController::class,'register']);
+Route::post('register', [UserController::class,'store']);
 
 
 //Admin Login
 Route::get('login', [AdminController::class,'login']);
 Route::post('login', [AdminController::class,'check_login']);
 Route::get('admin/logout', [AdminController::class,'logout']);
+
+//register
+Route::get('register', [TamuController::class,'register']);
+Route::post('register', [TamuController::class,'simpanRegister']);
 
 
 //Admin Dashboard
@@ -60,7 +64,6 @@ Route::resource('admin/room',KamarController::class);
 //Customer Routes
 Route::get('admin/customer/{id}/delete',[TamuController::class,'destroy']);
 Route::resource('admin/customer',TamuController::class);
-Route::resource('registerGuest',TamuController::class);
 
 //Booking Routes
 Route::get('admin/booking/{id}/delete',[BookingController::class,'destroy']);

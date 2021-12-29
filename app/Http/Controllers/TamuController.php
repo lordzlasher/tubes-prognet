@@ -26,7 +26,11 @@ class TamuController extends Controller
     public function create()
     {
         return view('customer.create');
-        return view('register');
+    }
+
+    public function register()
+    {
+        return view('registerGuest');
     }
 
     /**
@@ -51,12 +55,21 @@ class TamuController extends Controller
         $data->nomor_pengenal=$request->no_tanda_pengenal;
         $data->nama=$request->nama_lengkap;
         $data->alamat=$request->alamat;
-        $data->telepon=$request->telepon;     
+        $data->telepon=$request->telepon; 
+        $data->email=$request->email;     
+        $data->password=sha1($request->pass); 
         $data->save();
-
         return redirect('admin/customer')->with('success','Data telah ditambahkan');
-        return redirect('register')->with('success','Data telah ditambahkan');
+    }
 
+    public function simpanRegister(Request $request)
+    {
+        $data=new Tamu;
+        $data->nama=$request->nama_lengkap;
+        $data->email=$request->email;     
+        $data->password=sha1($request->pass); 
+        $data->save();
+        return redirect('welcome')->with('success','Data telah ditambahkan');
     }
 
     /**
@@ -105,7 +118,9 @@ class TamuController extends Controller
         $data->nomor_pengenal=$request->no_tanda_pengenal;
         $data->nama=$request->nama_lengkap;
         $data->alamat=$request->alamat;
-        $data->telepon=$request->telepon;     
+        $data->telepon=$request->telepon;   
+        $data->email=$request->email;     
+        $data->password=sha1($request->pass);   
         $data->save();
 
         return redirect('admin/customer')->with('success','Data telah diedit');

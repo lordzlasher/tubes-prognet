@@ -111,10 +111,11 @@ class BookingController extends Controller
     public function edit($id)
     {      
         {
-            $booking=Booking::all();
+            $booking=Booking::find($id);
+            $bookingg=BookingDetail::find($id);
             $tamuu=Tamu::all();
             $kamarr=Kamar::all();
-            return view('booking.edit',['idtamu'=>$tamuu, 'idkamar'=>$kamarr,'booking'=>$booking]);
+            return view('booking.edit',['idtamu'=>$tamuu, 'kamar'=>$kamarr,'booking'=>$booking,'bookingg'=>$bookingg]);
         }
     }
 
@@ -127,7 +128,27 @@ class BookingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'idtamu'=>'required',
+        ]);
+        
+        $data=new Booking;
+        $data->kode_booking=$request->kodeBooking;
+        $data->tamu_id=$request->idtamu;
+        $data->tanggal_booking=$request->tanggalBooking;
+        $data->total_transaksi=$request->totalTransaksi;
+        $data->total_terbayar=$request->totalBayar;     
+        $data->save();
+
+        $dataa=new BookingDetail;
+        $dataa->booking_id=$data->id;
+        $dataa->tanggal_mulai=$request->tanggalMulai;
+        $dataa->tanggal_akhir=$request->tanggalAkhir;
+        $dataa->quantity=$request->totalKamar;
+        $dataa->kamar_id=$request->idkamarr;
+        $dataa->status=$request->statuss;
+        $dataa->save();
+        return redirect('admin/booking')->with('success','Data telah ditambahkan');
     }
 
     /**
