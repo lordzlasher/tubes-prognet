@@ -13,11 +13,11 @@
                 </div>
                 <div class="card-body">
 
-                    @if($errors->any())
+                    {{-- @if($errors->any())
                         @foreach($errors->all() as $error)
                             <p class="text-danger">{{$error}}</p>
                         @endforeach
-                    @endif
+                    @endif --}}
 
                     <div class="table-responsive">
                         <form method="post" enctype="multipart/form-data" action="{{url('admin/customer')}}">
@@ -35,11 +35,21 @@
                             </tr>
                             <tr>
                                 <th>Nomor Tanda Pengenal <span class="text-danger">*</span> </th>
-                                <td><input name="no_tanda_pengenal" type="text" class="form-control"/> </td>
+                                <td><input name="no_tanda_pengenal" type="text" class="form-control" @error('no_tanda_pengenal') is-invalid @enderror/> </td>
+                                @error('no_tanda_pengenal')
+                                <div class="invalid-feedback">
+                                    {{$message}}
+                                  </div>
+                                  @enderror
                             </tr>
                             <tr>
                                 <th>Nama Lengkap <span class="text-danger">*</span> </th>
-                                <td><input name="nama_lengkap" type="text" class="form-control"/> </td>
+                                <td><input name="nama_lengkap" type="text" class="form-control" @error('nama_lengkap') is-invalid @enderror/> </td>
+                                @error('nama_lengkap')
+                                <div class="invalid-feedback">
+                                    {{$message}}
+                                  </div>
+                                  @enderror
                             </tr>
                             <tr>
                                 <th>Alamat <span class="text-danger">*</span> </th>

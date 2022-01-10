@@ -107,6 +107,20 @@
                 </div>
             </li>
 
+            <!-- Nav Item - Check In and Out Master -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{url('admin/check')}}" data-toggle="collapse" data-target="#Check"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-check"></i>
+                    <span>Check In & Out</span>
+                </a>
+                <div id="Check" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{url('admin/check')}}"><i class="far fa-eye"></i> Lihat Data</a>
+                    </div>
+                </div>
+            </li>
+
              <!-- Nav Item - Logout -->
              <li class="nav-item">
                 <a class="nav-link" data-toggle="modal" data-target="#logoutModal">

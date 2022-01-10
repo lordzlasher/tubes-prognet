@@ -39,7 +39,7 @@ class KamarController extends Controller
         $imgPath=$request->file('photo')->store('imgs');
 
         $data=new Kamar;
-        $data->tipe=$request->rt_id;
+        $data->tipe=$request->tipe_kamar;
         $data->harga=$request->harga;
         $data->stok_tersedia=$request->stok;
         $data->fasilitas=$request->fasilitas;

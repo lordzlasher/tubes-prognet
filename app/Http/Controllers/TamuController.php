@@ -27,12 +27,6 @@ class TamuController extends Controller
     {
         return view('customer.create');
     }
-
-    public function register()
-    {
-        return view('registerGuest');
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -47,6 +41,8 @@ class TamuController extends Controller
             'nama_lengkap'=>'required',
             'alamat'=>'required',
             'telepon'=>'required',
+            'email'=>'required|email:dns',
+            'password'=>'required|min:5|max:255'
         ]);
         
 
@@ -60,16 +56,6 @@ class TamuController extends Controller
         $data->password=sha1($request->pass); 
         $data->save();
         return redirect('admin/customer')->with('success','Data telah ditambahkan');
-    }
-
-    public function simpanRegister(Request $request)
-    {
-        $data=new Tamu;
-        $data->nama=$request->nama_lengkap;
-        $data->email=$request->email;     
-        $data->password=sha1($request->pass); 
-        $data->save();
-        return redirect('welcome')->with('success','Data telah ditambahkan');
     }
 
     /**

@@ -5,7 +5,7 @@ use App\Http\Controllers\KamarController;
 use App\Http\Controllers\TamuController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\RegisterController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,25 +37,24 @@ Route::get('/bookingtamu', function () {
     return view('bookingGuest');
 });
 
+Route::get('/admin/check', function () {
+    return view('check.index');
+});
+
+//Admin Dashboard
+Route::get('admin', function () {
+    return view('dashboard');
+});
+
 //register
-Route::get('register', [UserController::class,'register']);
-Route::post('register', [UserController::class,'store']);
+Route::get('register', [RegisterController::class,'register']);
+Route::post('register', [RegisterController::class,'store']);
 
 
 //Admin Login
 Route::get('login', [AdminController::class,'login']);
 Route::post('login', [AdminController::class,'check_login']);
 Route::get('admin/logout', [AdminController::class,'logout']);
-
-//register
-Route::get('register', [TamuController::class,'register']);
-Route::post('register', [TamuController::class,'simpanRegister']);
-
-
-//Admin Dashboard
-Route::get('admin', function () {
-    return view('dashboard');
-});
 
 //Room Routes
 Route::get('admin/room/{id}/delete',[KamarController::class,'destroy']);

@@ -26,7 +26,7 @@
                                     <form method="post" enctype="multipart/form-data" action="{{url('register')}}">
                                         @csrf
                                     <div>
-                                        <input type="text" class="form-control form-control-user" id="nama_lengkap" name="nama_lengkap"
+                                        <input type="text" class="form-control form-control-user" id="nama" name="nama"
                                             placeholder="Nama Lengkap">
                                     </div>
                                 </div>
@@ -34,20 +34,19 @@
                                     <input type="email" class="form-control form-control-user" id="email" name="email"
                                         placeholder="Email">
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                <div class="form-group">
+                                    {{-- <div class="col-sm-6 mb-3 mb-sm-0"> --}}
                                         <input type="password" class="form-control form-control-user"
                                             id="pass"  name="pass" placeholder="Password">
-                                    </div>
-                                    <div class="col-sm-6">
+                                    {{-- </div> --}}
+                                    {{-- <div class="col-sm-6">
                                         <input type="password" class="form-control form-control-user"
                                             id="pass"  name="pass1" placeholder="Repeat Password">
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <input class="btn btn-primary btn-user btn-block" type="submit">
                                 <hr>
                             </form>
-
                             <div class="text-center">
                                 <a class="small" href="{{url('/login')}}">Already have an account? Login!</a>
                             </div>

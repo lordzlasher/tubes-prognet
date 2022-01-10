@@ -12,7 +12,7 @@
                     </h6>
                 </div>
                 <div class="card-body">
-                    @if(Session::has('succcess'))
+                    @if(Session::has('success'))
                     <p class="text-success">{{session('success')}}</p>
                     @endif
                     <div class="table-responsive">
@@ -20,14 +20,9 @@
                             @csrf
                         <table class="table table-bordered" > 
                             <tr>
-                                <th>Pilih tipe kamar</th>
+                                <th>Masukan tipe kamar</th>
                                 <td>
-                                    <select name="rt_id" class="form-control">
-                                        <option value="0">--- Tipe Kamar ----</option>
-                                        <option value="1">Standar</option>
-                                        <option value="2">Deluxe</option>
-                                        <option value="3">Suite</option>
-                                    </select>
+                                    <input name="tipe_kamar" type="text" class="form-control"/> </td>
                                 </td>
                             </tr>
                             <tr>
@@ -58,7 +53,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
         <!-- /.container-fluid -->
 
