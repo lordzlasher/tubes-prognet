@@ -52,7 +52,6 @@ class BookingController extends Controller
             }
         }
         
-        
         $tamuu=Tamu::all();
         $kamarr=Kamar::all();
         return view('booking.create',['idtamu'=>$tamuu, 'idkamar'=>$kamarr, 'kode'=>$kode]);
@@ -68,6 +67,9 @@ class BookingController extends Controller
     {
         $request->validate([
             'idtamu'=>'required',
+            'tanggalMulai'=>'required',
+            'tanggalAkhir'=>'required',
+            'idkamar'=>'required',
         ]);
         
         $data=new Booking;

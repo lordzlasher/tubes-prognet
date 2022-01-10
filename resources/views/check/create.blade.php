@@ -45,7 +45,7 @@
                                 
                             </tr>
                             <tr>
-                                <th>Tanggal Check In </th>
+                                <th>Tanggal Check In <span class="text-danger">*</span> </th>
                                 <td><input name="tanggalMulai" type="date" class="form-control"/> </td>
                             </tr>
                             <tr>
